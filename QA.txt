@@ -1,0 +1,106 @@
+<----------------------------------- Selenium WebDriver ----------------------------------->
+Q1.What is selenium?
+A.Selenium is an open-source automation testing tool primarily used to automate web applications across different browsers & OS
+
+Q2.Selenium WebDriver
+A.Selenium WebDriver is a browser automation API that allows us to interact with web applications programmatically. It can
+  perform actions such as opening a browser, navigating to URLs, locating elements, clicking, typing, handling alerts, frames,
+  windows, cookies, and other browser interactions.
+
+Q3.Advantages and limitations of Selenium
+A.Selenium is open source, supports multiple programming languages such as Python and Java, works across major browsers and
+  OS,supports remote and parallel execution through Selenium Grid, and integrates well with frameworks and CI/CD tools.
+ Its main limitations are that it is primarily designed for web-browser automation and cannot directly automate native desktop
+  or native mobile applications. CAPTCHA and real MFA flows are intentionally difficult to automate. Selenium also doesn't
+  provide a complete test runner or reporting solution by itself, so with Python we commonly integrate it with pytest and
+  reporting tools such as Allure. Dynamic web applications can also require careful synchronization and locator design to 
+  avoid flaky tests.
+
+<----------------------------------- Browser/WebDriver Actions ----------------------------------->
+Q4.close() vs quit()
+A.close() closes the current browser window or tab, whereas quit() terminates the complete WebDriver session and closes all
+  browser windows associated with that session.
+
+Q5.Maximize vs Fullscreen
+A.Maximize enlarges the browser to its maximized window state, whereas fullscreen requests fullscreen display mode.
+
+Q6.Get and Set Window size
+A.get_window_size() retrieves the current browser window dimensions. Ex- print(driver.get_window_size())
+  while set_window_size(width, height) changes the browser window dimensions.Ex- driver.set_window_size(width, height)
+
+<----------------------------------- Locators ----------------------------------->
+Q7.Which locator should be preferred?
+A.My first preference is always a locator that is unique and stable. If the application provides dedicated automation attributes
+ such as data-testid, I prefer those because they are less affected by UI changes. A unique stable ID is also an excellent choice.
+ Otherwise, I use stable attributes with CSS selectors, and XPath when I need text matching or parent-child/sibling relationships.
+ I avoid dynamic IDs, unstable classes, indexes, and absolute XPath because they make tests brittle.
+
+Q8.find_element() vs find_elements()?
+ A.find_element() returns the first matching WebElement and raises NoSuchElementException if no element is found. find_elements()
+  returns a list containing all matching WebElements, and if nothing matches, it returns an empty list
+
+Q9.When you refresh a page, the text changes dynamically every time. How do you handle it?
+A.First, I identify whether only the text is changing or the element itself is also changing.If the element is stable but the text
+ is dynamic, I avoid validating the complete hardcoded text. Depending on the requirement, I validate: 
+ Partial text using contains , Starts with or ends with expected text , Expected text pattern using regular expressions
+ Presence or visibility of the element
+ For example, if the UI displays "Welcome User12345" and the number changes after every refresh, I validate only "Welcome" or the
+ expected stable portion. If the text changes asynchronously after refresh, I use an explicit wait before validating it.
+ In UI automation, I avoid hardcoding dynamic values such as timestamps, random IDs, order numbers, or session-generated values
+  because they make the automation unstable.
+
+<----------------------------------- Xpath ----------------------------------->
+                         xpath for amazon
+parent =>               //*[contains(text(),"Today's Deals")]/parent::div
+child =>                //div[@class='nav-fill']//li[1]/child::div/a
+ancestor =>             //*[contains(text(),"Today's Deals")]/ancestor::li
+descendant =>           //*[contains(text(),"Today's Deals")]/ancestor::li/following-sibling::li[2]/descendant::a
+following =>            //*[contains(text(),"Today's Deals")]/ancestor::li/following::li[1]
+following-sibling =>    //*[contains(text(),"Today's Deals")]/ancestor::li/following-sibling::li[1]
+preceding =>            //*[contains(text(),"Customer Service")]/parent::div/parent::li/preceding::li[5]
+preceding-sibling =>    //*[contains(text(),"Customer Service")]/parent::div/parent::li/preceding-sibling::li[5]
+multiple attributes =>  //input[@id='twotabsearchtextbox' and @name='field-keywords']
+attribute =>            //div[@class='nav-fill']//li[1]/child::div/a
+namespace =>            It's a XML tag grouping. Used in SOAP API, XML. Ex - //bookstore/namespace::*
+normalize space =>      //*[contains(normalize-space(text()), "Customer Service")]
+contains =>             //*[contains(text(),"Today's Deals")]
+text =>                 //*[contains(text(),"Today's Deals")]
+starts-with =>          //*[starts-with(text(),"Today")]
+last =>                 (//*[contains(text(), " Deals")])[last()]
+
+<----------------------------------- CSS ----------------------------------->
+Q10.XPath vs CSS ?
+A.Both XPath and CSS selectors are used to locate web elements. CSS selectors are usually shorter and convenient when stable IDs,
+ classes, or attributes are available. XPath is more flexible when I need to locate elements using visible text or navigate 
+ complex DOM relationships such as parent, ancestor, or siblings.
+
+Q11.CSS Parent Traversal Limitation ?
+A.CSS selectors work from parent to child and don't provide XPath-style direct child-to-parent traversal. XPath supports this 
+  using parent:: or ancestor::. So when I need to locate a parent or ancestor based on a child element, I generally use XPath.
+
+Q12. Dynamic CSS selectors and ^=, $=, *= 
+A.Dynamic CSS selectors are used when an element's attribute value changes dynamically between executions. Instead of using the
+ complete dynamic value, I identify the stable portion of the attribute and use CSS attribute operators.
+ ^= means Starts with Xapth = [id^='user'],$= means	Ends with Xapth = [id$='name'],*= means Contains Xapth = [id*='username']
+
+ <----------------------------------- WebElement Actions ----------------------------------->
+Q13.What is the use of this scope="module"
+A.the browser is created once for this test module, shared by all tests in that module, and closed after all tests finish.
+
+ <----------------------------------- Dropdown Handling ----------------------------------->
+Q14.Dynamic dropdown ?
+A dynamic dropdown is one where the options are loaded or changed at runtime. I trigger the dropdown, use an explicit wait
+ for the options to become available, retrieve the options, and select the required value using stable text or attributes.
+ If it's a standard <select> element I use the Select class; if it's a custom dynamic dropdown, I handle the options as
+   normal WebElements.
+Ex -    dropdown.click()
+options = WebDriverWait(driver, 10).until(EC.visibility_of_all_elements_located((By.CSS_SELECTOR, ".dropdown-option")))
+for option in options:
+    if option.text == "Andhra Pradesh":
+        option.click()
+        break
+
+Q15.Auto-suggestion dropdown?
+A.An auto-suggestion dropdown is a dynamic dropdown where suggestions appear based on the text entered by the user. I type
+ partial text, wait for the suggestion list to appear, capture the available suggestions, iterate through them, and click
+  the required option based on its text or another stable attribute.

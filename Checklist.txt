@@ -1,0 +1,219 @@
+                Selenium WebDriver
+ What is Selenium?                      
+ Selenium WebDriver
+ Advantages and limitations of Selenium
+                Browser/WebDriver Actions
+ close() vs quit()
+ Browser maximize vs fullscreen
+ Window size
+                Locators
+ Which locator should be preferred?
+ findElement() vs findElements()
+ Dynamic elements
+                Xpath 
+ parent
+ child
+ ancestor
+ descendant
+ following
+ following-sibling
+ preceding
+ preceding-sibling
+ Multiple attributes
+                CSS
+ XPath vs CSS
+ CSS parent traversal limitation
+ Dynamic CSS selectors and ^=, $=, *=
+                WebElement Actions
+ .text and get_attribute("value")                           - ui
+ Verify element displayed                                   - ui
+ Verify element enabled                                     - ui
+ Verify checkbox selected                                   - ui
+ Clear textbox                                              - ui
+ Retrieve entered textbox value                             - ui
+ What is the use of this scope="module"
+                Dropdown Handling
+ Single dropdown                                             - ui
+ Multi-select dropdown                                       - ui
+ Custom dropdown                                             - ui
+ Dynamic dropdown
+ Auto-suggestion dropdown
+ Searchable dropdown                                         - ui
+                Checkbox & Radio Button
+ One checkbox
+ Multiple checkboxes
+ Select all
+ Select checkbox based on text/value
+ Radio buttons
+ Verify selected state
+                Alerts / JavaScript Popups
+ Simple alert
+ Confirmation alert
+ Prompt alert
+ NoAlertPresentException
+                Frames / iFrames
+ Frame by index
+ Frame by name/id
+ Frame by WebElement
+ Nested frames
+ parentFrame() vs defaultContent()
+ Find number of iframes
+ Dynamic iframe
+ Switching between frames
+                Windows & Tabs
+ Parent → child
+ Multiple windows
+ Switch based on title
+ Switch based on URL
+ Close child and return parent
+ Open new tab
+ Open new window
+                Waits
+ FluentWait
+ Polling interval
+ Ignore exceptions
+ TimeoutException
+ Implicit vs Explicit
+ Explicit vs Fluent
+ Why Thread.sleep() should generally be avoided
+ Custom waits
+ Wait for loader/spinner to disappear
+                Actions Class
+ Mouse hover
+ Right click
+ Double click
+ Drag and drop
+ Click and hold
+ Release
+ Keyboard operations
+ keyDown() / keyUp()
+ moveToElement()
+ moveByOffset()
+ W3C Actions API
+                Keyboard Operations
+ Keyoard Operations 
+ Keyoard Operations with combination
+                JavaScriptExecutor
+ JS click
+ Scroll
+ Scroll into view
+ Enter value
+ Retrieve values
+ Page scroll
+ When JSExecutor should/shouldn't be used
+                Screenshots
+ Full viewport screenshot
+ Element screenshot
+ Screenshot on test failure
+ Attach screenshot to report
+                Web Tables
+ Number of rows
+ Number of columns
+ Read all data
+ Find specific value
+ Find row based on employee/product name
+ Click Edit/Delete based on row
+ Dynamic tables
+ Pagination
+ Sorting validation
+                Dynamic Elements
+ Dynamic IDs
+ Dynamic XPath
+ contains()
+ starts-with()
+ Relative XPath
+ Dynamic buttons
+ Dynamic dropdowns
+ Elements appearing/disappearing
+ Loading spinner
+ AJAX-loaded elements
+ Stale elements
+                Scrolling
+ Scroll down
+ Scroll up
+ Scroll bottom
+ Scroll top
+ Scroll to element
+ Selenium WheelInput / Actions scrolling
+                File Upload
+ <input type="file">
+ Hidden upload controls
+ Why OS dialogs are different from DOM elements
+                File Download
+ Configure browser download directory
+ ChromeOptions/preferences
+ Verify downloaded file
+ Wait until download completes
+ Validate filename
+ Validate downloaded content
+                Cookies
+ Cookie session
+                Browser Options
+ Headless execution
+ Incognito
+ Browser arguments
+ Download preferences
+ SSL/certificate handling
+ Disable notifications
+ Browser capabilities
+                Shadow DOM
+ What is Shadow DOM?
+ Shadow host
+ Shadow root
+ Locate element inside Shadow DOM
+ Nested shadow roots
+ Shadow DOM vs iframe
+                Selenium Exceptions
+ NoSuchElementException
+ StaleElementReferenceException (Important)
+ TimeoutException
+ ElementNotInteractableException
+ ElementClickInterceptedException  (Important)
+ NoSuchFrameException
+ NoSuchWindowException
+ NoAlertPresentException
+ InvalidSelectorException
+ SessionNotCreatedException
+ WebDriverException
+                Handling Calendar / Date Picker
+ Simple date picker
+ Dynamic date picker
+ Current month
+ Future month
+ Previous month
+ Select date dynamically
+ Month/year navigation
+ Date input fields
+                Auto-Suggestion
+ search field suggestions
+                Assertions
+ Hard assertion
+ Soft assertion
+ assertEquals
+ assertTrue
+ assertFalse
+ assertNotNull
+ When to use each
+                Broken Links
+ Approach
+                Authentication
+ Basic authentication
+ Form authentication
+ Cookie/session authentication
+ Authentication popup concepts
+ Modern browser/security limitations
+                Parallel Execution
+  Parallel tests
+ Parallel classes
+ Parallel methods
+ Thread safety
+ ThreadLocal WebDriver
+ Why static WebDriver causes issues
+ Grid + parallel execution
+                Cross-Browser Testing
+ Chrome
+ Firefox
+ Browser parameterization
+ Driver factory
+ Headless browser
+ Browser-specific failures
