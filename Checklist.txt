@@ -51,20 +51,19 @@
  Prompt alerts                                              - ui
  Timed Alerts                                               - ui
                 Frames / iFrames
- Frame by index
- Frame by name/id
- Frame by WebElement
+ Frame by index                                             - ui
+ Frame by name/id                                           - ui
+ Frame by WebElement                                        - ui
  Nested frames
  parentFrame() vs defaultContent()
- Find number of iframes
+ Find number of iframes                                     - ui 
  Dynamic iframe
- Switching between frames
+ Switching between frames                                   - ui
                 Windows & Tabs
- Parent → child
- Multiple windows
- Switch based on title
- Switch based on URL
- Close child and return parent
+ Parent → child    /   Close child and return parent        - ui
+ Multiple windows                                           - ui
+ Switch based on title                                      - ui
+ Switch based on URL                                        - ui
  Open new tab
  Open new window
                 Waits

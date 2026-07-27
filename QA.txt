@@ -104,3 +104,22 @@ Q15.Auto-suggestion dropdown?
 A.An auto-suggestion dropdown is a dynamic dropdown where suggestions appear based on the text entered by the user. I type
  partial text, wait for the suggestion list to appear, capture the available suggestions, iterate through them, and click
   the required option based on its text or another stable attribute.
+
+ <---------------- Checkbox & Radio Button , Alerts / JavaScript Popups--------------------->
+ No Q and A
+  <----------------------------------- Frames / iFrames ----------------------------------->
+Q16.parentFrame() vs defaultContent()?
+A.parent_frame() switches the WebDriver from the current frame to its immediate parent frame, whereas default_content() switches
+  the WebDriver directly back to the main/root HTML document regardless of how deeply nested the current frame is.
+
+Q17.Dynamic iFrame?
+A.A dynamic iframe is an iframe that is loaded dynamically or whose attributes may change at runtime. I handle it using a stable
+  locator and an explicit wait such as frame_to_be_available_and_switch_to_it() instead of hardcoding a changing frame ID.
+  Ex - driver.switch_to.frame("frame_12345") -- its a dynamic iframe
+  WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((
+            By.XPATH, "//iframe[contains(@id,'frame_')]"))) 
+
+  <----------------------------------- Windows & Tabs ----------------------------------->
+Q18.Multiple windows and tabs handle?
+A.When multiple windows or tabs are opened, I use window_handles to get all window IDs. I iterate through the handles, compare
+ each one with the parent handle, and use switch_to.window() to switch between them.

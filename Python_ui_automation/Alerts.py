@@ -11,7 +11,6 @@ def driver():
     yield driver
     driver.quit()
 
-
 def test_Alerts(driver):
     driver.get('https://demoqa.com/alerts')
     driver.find_element(By.ID, "alertButton").click()  # Simple Alerts

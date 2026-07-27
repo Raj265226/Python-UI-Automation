@@ -8,6 +8,7 @@ def driver():
     driver.maximize_window()
     yield driver
     driver.quit()
+    
 def test_single_multiple_checkbox(driver):
     driver.get('https://demoqa.com/checkbox')
     driver.find_element(By.XPATH, "//div[@role='treeitem']/span[2]").click()  # Expand Home
@@ -26,7 +27,6 @@ def test_single_multiple_checkbox(driver):
     value = 'Desktop'  # using value
     driver.find_element(By.XPATH,f"//span[@title='{value}']/preceding-sibling::span[@role='checkbox']").click()
     time.sleep(3)
-
 
 def test_radio_n_state(driver):
     driver.get('https://demoqa.com/radio-button')
