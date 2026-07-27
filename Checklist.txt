@@ -33,24 +33,23 @@
  Retrieve entered textbox value                             - ui
  What is the use of this scope="module"
                 Dropdown Handling
- Single dropdown                                             - ui
- Multi-select dropdown                                       - ui
- Custom dropdown                                             - ui
+ Single dropdown                                            - ui
+ Multi-select dropdown                                      - ui
+ Custom dropdown                                            - ui
  Dynamic dropdown
  Auto-suggestion dropdown
- Searchable dropdown                                         - ui
+ Searchable dropdown                                        - ui
                 Checkbox & Radio Button
- One checkbox
- Multiple checkboxes
- Select all
- Select checkbox based on text/value
- Radio buttons
- Verify selected state
+ One checkbox                                               - ui
+ Multiple checkboxes                                        - ui
+ Select checkbox based on text/value                        - ui
+ Radio buttons                                              - ui
+ Verify selected state                                      - ui
                 Alerts / JavaScript Popups
- Simple alert
- Confirmation alert
- Prompt alert
- NoAlertPresentException
+ Simple Alerts                                              - ui
+ Confirmation Alerts                                        - ui
+ Prompt alerts                                              - ui
+ Timed Alerts                                               - ui
                 Frames / iFrames
  Frame by index
  Frame by name/id
