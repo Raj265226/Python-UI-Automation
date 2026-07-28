@@ -123,3 +123,76 @@ A.A dynamic iframe is an iframe that is loaded dynamically or whose attributes m
 Q18.Multiple windows and tabs handle?
 A.When multiple windows or tabs are opened, I use window_handles to get all window IDs. I iterate through the handles, compare
  each one with the parent handle, and use switch_to.window() to switch between them.
+ 
+  <--------------------------------------- Waits ----------------------------------------->
+Q19.Fluent Wait?
+A.Fluent Wait is an advanced explicit wait that waits for a condition with customized polling interval and exception handling.
+   It keeps checking the condition repeatedly until the condition is true or the timeout occurs.
+    Syntax: wait = WebDriverWait(driver,timeout=10,poll_frequency=1,ignored_exceptions=(NoSuchElementException,))
+            Maximum timeout      - How long Selenium should wait.
+            Polling frequency    - How often Selenium should check the condition.
+            Ignored exceptions   - Which exceptions Selenium should ignore while waiting.
+
+Q20.Polling Interval?
+A.It is the frequency at which Selenium repeatedly checks whether the expected condition has been satisfied. In Fluent Wait,
+  we can customize the polling interval instead of using the default polling frequency. The default polling interval in Selenium
+    Python WebDriverWait is 0.5 seconds.
+
+Q21.Ignored Exceptions?
+A.Ignored exceptions in Fluent Wait allow Selenium to continue polling even when specific exceptions occur. Instead of failing
+  immediately, Selenium ignores those exceptions and retries until the condition is satisfied or the timeout is reached.
+
+Q22.Implicit Wait vs Explicit Wait?
+A.Implicit Wait is a global wait applied to all element searches, whereas Explicit Wait waits for a specific condition on a specific element.
+  Explicit Wait is preferred because it provides better control and reliability in automation scripts.
+
+Q23.Explicit Wait vs Fluent Wait?
+A.Explicit Wait waits for a specific condition using the default polling interval, whereas Fluent Wait is an advanced form of Explicit Wait
+ that additionally allows customization of polling frequency and ignored exceptions.
+ In Selenium Python, Fluent Wait behavior is implemented using WebDriverWait with the `poll_frequency` and `ignored_exceptions` parameters.
+
+Q24.Why should time.sleep() be avoided?
+A.time.sleep() should be avoided because it introduces a fixed wait, increases execution time, and can make tests flaky. Explicit or Fluent Wait
+  should be used instead because they wait only until the required condition is satisfied.
+
+Q25.Custom Wait for loader/spinner to disappear?
+A.A custom wait is a user-defined wait condition used when standard Expected Conditions are not sufficient. A common example is waiting for a
+  loader or spinner to disappear before interacting with page elements.
+
+  <------------------------------------- Mouse Actions ------------------------------------->
+Q26. KeyDown vs KeyUp?
+A.key_up() is used to release a keyboard key after it has been pressed using key_down().
+
+Q27.move_to_element_with_offset()?
+A.move_to_element_with_offset() moves the mouse pointer to a specific X-Y coordinate relative to a web element and is commonly used when precise
+  mouse positioning is required, such as sliders, charts, canvas elements, and custom UI controls.
+
+Q28.W3C Actions API
+A.W3C Actions API is the Selenium 4 standard for performing complex user interactions such as mouse hover, drag-and-drop, right-click, double-click,
+  and keyboard combinations across different browsers in a consistent way.
+
+  <------------------------------------- JSExecutor ------------------------------------->
+Q29.JavaScript Click?
+A.JavaScript Click is used to click an element using JavaScript when Selenium's normal click() method fails due to overlays, hidden elements, or
+  synchronization issues.
+
+Q30.scrollIntoView() vs scrollBy()?
+A.scrollIntoView() scrolls the page until a specific web element becomes visible, whereas scrollBy() scrolls the page by a specified number of pixels
+  in the X and Y direction. `scrollIntoView()` is element-based, while scrollBy() is coordinate-based.
+
+Q31.Page Scroll – When should/should not JSExecutor be used?
+A.JSExecutor Scroll should be used when an element is outside the viewport, hidden due to page scrolling, or when scrolling itself is part of the
+  test scenario. It should not be used unnecessarily when the element is already visible or when proper waits can solve the issue.
+
+  <------------------------------------- Screenshots ------------------------------------->
+Q32.How do you capture a full viewport screenshot in Selenium Python?
+A.A full viewport screenshot captures the complete visible browser window. It is useful for debugging UI issues and capturing the application state
+  during test execution. Example: driver.save_screenshot("ss.png")   or   driver.get_screenshot_as_file("ss.png")
+
+Q33.How do you capture a screenshot of a specific element?
+A.Element screenshots capture only the required web element instead of the full page.
+Example:        username = driver.find_element(By.ID, "userName")               username.screenshot("ss.png")
+
+Q34.What is the difference between Full Screenshot and Element Screenshot?
+A.Full Screenshot - Captures the complete visible browser area , Useful for page-level debugging.
+  Element Screenshot - Captures only a specific web element , Useful for validating a textbox, logo, button, error message, image, etc.

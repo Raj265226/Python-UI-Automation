@@ -64,46 +64,43 @@
  Multiple windows                                           - ui
  Switch based on title                                      - ui
  Switch based on URL                                        - ui
- Open new tab
- Open new window
+ Open new tab                                               - ui
+ Open new window                                            - ui
                 Waits
- FluentWait
- Polling interval
- Ignore exceptions
- TimeoutException
- Implicit vs Explicit
- Explicit vs Fluent
+ FluentWait                                                 - ui
+ Polling interval                                          
+ Ignore exceptions                                          - ui
+ Implicit vs Explicit                                       - ui                         
+ Explicit vs Fluent                                         
  Why Thread.sleep() should generally be avoided
- Custom waits
+ Custom waits                                               - ui
  Wait for loader/spinner to disappear
                 Actions Class
- Mouse hover
- Right click
- Double click
- Drag and drop
- Click and hold
- Release
- Keyboard operations
- keyDown() / keyUp()
- moveToElement()
- moveByOffset()
+ Mouse hover                                                - ui
+ Right click                                                - ui
+ Double click                                               - ui
+ Drag and drop                                              - ui
+ Click and hold                                             - ui
+ Release                                                    - ui
+ Keyboard operations                                        - ui
+ Keyboard operations with combinations                      - ui
+ keyDown() / keyUp()                                        - ui
+ moveToElement()                                            - ui
+ moveByOffset()                                             - ui
  W3C Actions API
-                Keyboard Operations
- Keyoard Operations 
- Keyoard Operations with combination
                 JavaScriptExecutor
- JS click
- Scroll
- Scroll into view
- Enter value
- Retrieve values
- Page scroll
+ JS click                                                   - ui
+ Scroll                                                     - ui
+ Scroll into view                                           - ui
+ Enter value                                                - ui
+ Retrieve values                                            - ui
+ Page scroll                                                - ui
  When JSExecutor should/shouldn't be used
                 Screenshots
- Full viewport screenshot
- Element screenshot
- Screenshot on test failure
- Attach screenshot to report
+ Full viewport screenshot                                   - ui
+ Element screenshot                                         - ui
+ Screenshot on test failure                                 - ui
+ Attach screenshot to report                                - ui
                 Web Tables
  Number of rows
  Number of columns
