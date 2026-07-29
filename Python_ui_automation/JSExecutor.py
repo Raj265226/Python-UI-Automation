@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 @pytest.fixture(scope='module')
 def driver():
-    driver = webdriver.Edge()
+    driver = webdriver.Chrome()
     driver.maximize_window()
     yield driver
     driver.quit()
@@ -30,3 +30,10 @@ def test_JS_Scroll(driver):
     driver.execute_script("arguments[0].scrollIntoView();",submit_button)   # Scroll into view
     driver.execute_script("arguments[0].click();", submit_button)
     time.sleep(5)
+
+def test_JS_Bottom_Top(driver):
+    driver.get("https://demoqa.com/text-box")
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);") # Scroll to Bottom
+    time.sleep(2)
+    driver.execute_script("window.scrollTo(0, 0);") # Scroll to Top
+    time.sleep(2)

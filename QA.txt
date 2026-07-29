@@ -171,45 +171,50 @@ Q28.W3C Actions API
 A.W3C Actions API is the Selenium 4 standard for performing complex user interactions such as mouse hover, drag-and-drop, right-click, double-click,
   and keyboard combinations across different browsers in a consistent way.
 
+Q29.What is WheelInput in Selenium?
+A.Selenium 4 introduced WheelInput support through the W3C Actions API. Instead of executing JavaScript, it simulates real mouse wheel scrolling.
+ I use ActionChains.scroll_by_amount() to scroll by a fixed number of pixels and ActionChains.scroll_to_element() to bring an element into view.
+  For most applications, JavaScript scrolling is sufficient, but when I need to mimic actual user scrolling behavior, I prefer the Actions API.
+
   <------------------------------------- JSExecutor ------------------------------------->
-Q29.JavaScript Click?
+Q30.JavaScript Click?
 A.JavaScript Click is used to click an element using JavaScript when Selenium's normal click() method fails due to overlays, hidden elements, or
   synchronization issues.
 
-Q30.scrollIntoView() vs scrollBy()?
+Q31.scrollIntoView() vs scrollBy()?
 A.scrollIntoView() scrolls the page until a specific web element becomes visible, whereas scrollBy() scrolls the page by a specified number of pixels
   in the X and Y direction. `scrollIntoView()` is element-based, while scrollBy() is coordinate-based.
 
-Q31.Page Scroll – When should/should not JSExecutor be used?
+Q32.Page Scroll – When should/should not JSExecutor be used?
 A.JSExecutor Scroll should be used when an element is outside the viewport, hidden due to page scrolling, or when scrolling itself is part of the
   test scenario. It should not be used unnecessarily when the element is already visible or when proper waits can solve the issue.
 
   <------------------------------------- Screenshots ------------------------------------->
-Q32.How do you capture a full viewport screenshot in Selenium Python?
+Q33.How do you capture a full viewport screenshot in Selenium Python?
 A.A full viewport screenshot captures the complete visible browser window. It is useful for debugging UI issues and capturing the application state
   during test execution. Example: driver.save_screenshot("ss.png")   or   driver.get_screenshot_as_file("ss.png")
 
-Q33.How do you capture a screenshot of a specific element?
+Q34.How do you capture a screenshot of a specific element?
 A.Element screenshots capture only the required web element instead of the full page.
 Example:        username = driver.find_element(By.ID, "userName")               username.screenshot("ss.png")
 
-Q34.What is the difference between Full Screenshot and Element Screenshot?
+Q35.What is the difference between Full Screenshot and Element Screenshot?
 A.Full Screenshot - Captures the complete visible browser area , Useful for page-level debugging.
   Element Screenshot - Captures only a specific web element , Useful for validating a textbox, logo, button, error message, image, etc.
 
   <------------------------------------- WebTables ------------------------------------->
-Q35.How do you handle dynamic tables in Selenium?
+Q36.How do you handle dynamic tables in Selenium?
 A-I first identify the row using a unique value like an employee name or product ID. Once I find the matching row, I use a relative XPath
   to perform actions such as Edit, Delete, or reading values. This makes the automation stable even if the row order changes.
 
   <------------------------------------- Dynamic Elements ------------------------------------->
-Q36.Dynamic id/xpath ?
+Q37.Dynamic id/xpath ?
   A.When a page is refreshed and the displayed text changes dynamically, I first identify whether only the text is changing or whether the entire
    element is dynamic. If only the text changes, I avoid validating the complete string. Instead, I validate the stable portion using partial text
    matching, regular expressions, or expected formats. For example, if an order number or timestamp changes every time, I verify the prefix or the
    format instead of the exact value. This approach makes the Selenium automation more stable and reduces false failures caused by dynamic data.
 
-Q37.Dynamic Dropdown?
+Q38.Dynamic Dropdown?
 A.Dynamic dropdowns load their options based on user input or an API response. I first wait for the dropdown options to appear using an explicit wait,
  then capture all options with find_elements(), iterate through them, compare the visible text with the expected value, and click the matching option.
   For standard HTML <select> dropdowns, I use Selenium's Select class; for custom or React-based dropdowns, I interact with the input field and the
@@ -226,3 +231,8 @@ A.A StaleElementReferenceException occurs when Selenium tries to interact with a
  happens after a page refresh, navigation, or when JavaScript updates the page dynamically. I handle it by locating the element again after the DOM has been
   updated. If needed, I use an Explicit Wait to ensure the new element is available before interacting with it. In scenarios where the DOM updates frequently,
    I may implement a retry mechanism using try-except.
+
+  <------------------------------------- File Upload ------------------------------------->
+Q41.How do you upload a file in Selenium?
+A-If the application uses a standard HTML file upload control (<input type="file">), I don't interact with the operating system's file picker. Instead,
+  I use Selenium's send_keys() method to send the complete file path directly to the input element. This is the most reliable and recommended approach.

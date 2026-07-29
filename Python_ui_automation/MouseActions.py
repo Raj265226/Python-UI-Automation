@@ -63,3 +63,13 @@ def test_keyboard_copy_paste(driver):
     permanent_address.click()
     actions.key_down(Keys.CONTROL).send_keys("v").key_up(Keys.CONTROL).perform() # Ctrl + V
     time.sleep(5)
+
+def test_wheelInput_actions(driver):
+    driver.get("https://demoqa.com/text-box")
+    ActionChains(driver).scroll_by_amount(0, 600).perform() # Scroll down
+    time.sleep(5)
+    ActionChains(driver).scroll_by_amount(0, -300).perform() # Scroll up
+    time.sleep(5)
+    submit = driver.find_element(By.ID, "submit")
+    ActionChains(driver).scroll_to_element(submit).perform() # Scroll directly to element
+    time.sleep(5)

@@ -92,6 +92,8 @@
  JS click                                                   - ui
  Scroll                                                     - ui
  Scroll into view                                           - ui
+ Scroll bottom
+ Scroll top                                                 - ui
  Enter value                                                - ui
  Retrieve values                                            - ui
  Page scroll                                                - ui
@@ -115,13 +117,6 @@
  Dynamic dropdowns
  Elements appearing/disappearing
  Stale elements
-                Scrolling
- Scroll down
- Scroll up
- Scroll bottom
- Scroll top
- Scroll to element
- Selenium WheelInput / Actions scrolling
                 File Upload
  <input type="file">
  Hidden upload controls
