@@ -270,3 +270,27 @@ A.A cookie is a small piece of data stored by the browser. Websites use cookies 
 Q47.What is headless execution?
 A-Headless execution means running the browser without opening the browser window. It is commonly used in CI/CD pipelines to execute tests faster and consume
   fewer resources.
+
+  <------------------------------------- Shadow DOM ------------------------------------->
+Q48.Shadow DOM and Shadow Host?
+A.Shadow DOM is a browser technology used to encapsulate a component's HTML, CSS, and JavaScript from the main DOM.
+  The element to which the Shadow DOM is attached is called the Shadow Host.
+  The root of the Shadow DOM is called the Shadow Root.
+    <book-app>  ← Shadow Host
+        #shadow-root  ← Shadow Root
+            <input>
+            <button>
+    </book-app>
+
+Q49.What is Nested Shadow DOM?
+A.Nested Shadow DOM means one Shadow Root contains another Shadow Host, which has its own Shadow Root.
+<parent-component>                        host1 = driver.find_element(By.CSS_SELECTOR, "parent-component")   # Shadow Host 1
+    #shadow-root                          root1 = host1.shadow_root                                          # Shadow Root 1
+        <child-component>                 host2 = root1.find_element(By.CSS_SELECTOR, "child-component")     # Shadow Host 2
+            #shadow-root                  root2 = host2.shadow_root                                          # Shadow Root 2
+                <input id="username">     root2.find_element(By.ID, "username").send_keys("Rohit")           # Final element
+
+Q50.Shadow DOM vs iframe?
+A.Shadow DOM is an encapsulated DOM tree within the same webpage and is accessed through a Shadow Root, whereas an iframe is
+  a completely separate HTML document embedded in a page and requires `switch_to.frame()` before interacting with elements
+  inside it.

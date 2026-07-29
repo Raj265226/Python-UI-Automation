@@ -125,54 +125,43 @@
  Wait until download completes
  Validate downloaded content
  Cookie session                                              -ui
-                Browser Options         -ui
- Headless execution                                          
- Incognito
- Browser arguments
- Download preferences
- SSL/certificate handling
- Disable notifications
- Browser capabilities
+                Browser Options         
+ Headless execution                                          -ui                            
+ Incognito                                                   -ui
+ Browser arguments                                           -ui
+ Download preferences                                        -ui
+ SSL/certificate handling                                    -ui
+ Disable notifications                                       -ui
+ Browser capabilities                                        -ui
                 Shadow DOM
  What is Shadow DOM?
  Shadow host
  Shadow root
- Locate element inside Shadow DOM
+ Locate element inside Shadow DOM                            -ui
  Nested shadow roots
  Shadow DOM vs iframe
-                Selenium Exceptions
- NoSuchElementException
- StaleElementReferenceException (Important)
- TimeoutException
- ElementNotInteractableException
- ElementClickInterceptedException  (Important)
- NoSuchFrameException
- NoSuchWindowException
- NoAlertPresentException
- InvalidSelectorException
- SessionNotCreatedException
- WebDriverException
+                Selenium Exceptions                         
+ NoSuchElementException                                      -ui          
+ StaleElementReferenceException                              -ui
+ TimeoutException                                            -ui
+ ElementClickInterceptedException                            -ui
+ NoSuchFrameException                                        -ui
+ NoSuchWindowException                                       -ui
+ NoAlertPresentException                                     -ui
+ InvalidSelectorException                                    -ui
                 Handling Calendar / Date Picker
- Simple date picker
- Dynamic date picker
- Current month
- Future month
- Previous month
- Select date dynamically
- Month/year navigation
- Date input fields
+ Simple date picker                                          -ui
+ Select date dynamically                                     -ui
                 Auto-Suggestion
- search field suggestions
+ search field suggestions                                    -ui
                 Assertions
- Hard assertion
- Soft assertion
- assertEquals
- assertTrue
- assertFalse
+ Hard Assert /  assertEquals                                 -ui
+ Soft assertion                                              -ui
+ assertTrue                                                  -ui
+ assertFalse                                                 -ui
  assertNotNull
- When to use each
                 Broken Links
- Approach
+ Approach                                                    -ui
                 Authentication
  Basic authentication
  Form authentication
