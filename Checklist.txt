@@ -117,21 +117,16 @@
  Dynamic dropdowns
  Elements appearing/disappearing
  Stale elements
-                File Upload
- <input type="file">
+                File Upload,Download and Cookies
+ <input type="file">                                        - ui
  Hidden upload controls
  Why OS dialogs are different from DOM elements
-                File Download
- Configure browser download directory
- ChromeOptions/preferences
- Verify downloaded file
+ Verify downloaded file                                      -ui
  Wait until download completes
- Validate filename
  Validate downloaded content
-                Cookies
- Cookie session
-                Browser Options
- Headless execution
+ Cookie session                                              -ui
+                Browser Options         -ui
+ Headless execution                                          
  Incognito
  Browser arguments
  Download preferences

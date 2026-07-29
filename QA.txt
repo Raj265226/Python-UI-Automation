@@ -232,7 +232,41 @@ A.A StaleElementReferenceException occurs when Selenium tries to interact with a
   updated. If needed, I use an Explicit Wait to ensure the new element is available before interacting with it. In scenarios where the DOM updates frequently,
    I may implement a retry mechanism using try-except.
 
-  <------------------------------------- File Upload ------------------------------------->
+  <------------------------------------- File Upload,Download and Cookies ------------------------------------->
 Q41.How do you upload a file in Selenium?
 A-If the application uses a standard HTML file upload control (<input type="file">), I don't interact with the operating system's file picker. Instead,
   I use Selenium's send_keys() method to send the complete file path directly to the input element. This is the most reliable and recommended approach.
+
+Q42.How do you handle hidden file upload controls in Selenium?
+A-Sometimes the file upload control (<input type="file">) is hidden using CSS (display:none, visibility:hidden, or opacity:0), and users interact with
+ a custom Upload button instead. Selenium cannot interact with hidden elements in the normal way. I first inspect the DOM to check if a hidden
+  <input type="file"> exists. If it does, I use send_keys() to provide the file path directly. If required, I make the element visible using JavaScript
+   before calling send_keys(). If the application uses a native operating system file dialog with no accessible file input, I use external tools like
+    AutoIT or PyAutoGUI as a last resort.
+          import pyautogui                                                              from selenium.webdriver.common.by import By
+          driver.find_element(By.ID, "uploadBtn").click()                               driver.execute_script("arguments[0].style.display='block';",upload)
+          pyautogui.write(r"sampleFile.jpeg")                                           upload.send_keys(r"sampleFile.jpeg")
+          pyautogui.press("enter")
+
+Q43.Why can't Selenium automate OS dialogs?
+A-Selenium is designed to automate web browsers. It interacts only with HTML elements that are part of the DOM (Document Object Model). Operating system dialogs,
+ such as the Windows File Explorer, Save As dialog, Print dialog, or authentication pop-ups, are created by the operating system—not by the web page. Since these
+  dialogs are outside the browser's DOM, Selenium cannot locate or interact with them.
+  Ex - <button>Choose File</button> (HTML) > Window opens with dialog > It's created by Windows, not by the browser > the file dialog is not part of the HTML DOM.
+
+Q44.How do you wait until a file download completes in Selenium?
+A-Selenium doesn't provide a built-in wait for file downloads. After clicking the download button, I continuously check the download folder until the expected
+  file appears. In Chrome, I also verify that the temporary .crdownload file has disappeared, which indicates that the download has completed successfully.
+
+Q45.How do you validate the content of a downloaded file?
+A-After verifying that the file has been downloaded successfully, I open the file using an appropriate Python library based on its type and validate its contents.
+  For example, I use open() for text files, openpyxl for Excel files, csv for CSV files, PyPDF2 or pdfplumber for PDFs, and Pillow for images.
+
+Q46.What is a cookie?
+A.A cookie is a small piece of data stored by the browser. Websites use cookies to remember information such as login status, user preferences, session IDs,
+  shopping cart details, and language settings.
+
+  <------------------------------------- Browser Options ------------------------------------->
+Q47.What is headless execution?
+A-Headless execution means running the browser without opening the browser window. It is commonly used in CI/CD pipelines to execute tests faster and consume
+  fewer resources.
