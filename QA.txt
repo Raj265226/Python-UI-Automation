@@ -294,3 +294,50 @@ Q50.Shadow DOM vs iframe?
 A.Shadow DOM is an encapsulated DOM tree within the same webpage and is accessed through a Shadow Root, whereas an iframe is
   a completely separate HTML document embedded in a page and requires `switch_to.frame()` before interacting with elements
   inside it.
+
+    <------------------------------------- Parallel Execution ------------------------------------->
+Q51.What is parallel execution in pytest?
+A-Parallel execution means running multiple test cases simultaneously using multiple CPU cores or processes. This reduces the
+  overall execution time of the test suite.In pytest,parallel execution is achieved using the pytest-xdist plugin
+  pytest -n 4
+
+Q52.Can pytest run test classes in parallel?
+A-Yes. Using the pytest-xdist plugin, pytest can execute test classes in parallel. By using the --dist=loadscope option, all
+  test methods within the same class run on the same worker, while different classes are distributed across different workers.
+  pytest -n 2 --dist=loadscope
+
+Q53.Can pytest execute test methods in parallel?
+A-Yes. Using the pytest-xdist plugin, pytest can execute individual test methods in parallel. Each test method is assigned to
+  an available worker process, allowing multiple methods to run simultaneously and reducing the overall execution time.
+  pytest -n 3 -s
+
+Q54.When Should You Avoid Parallel Methods?
+A-Depend on one another, Share the same browser instance,Use the same test data.,Write to the same file or database records,
+  Rely on execution order.
+
+Q55.What is Thread Safety?
+A-Thread safety means ensuring that multiple threads or parallel workers can execute code simultaneously without causing data
+  corruption, race conditions, or unexpected behavior. In test automation, thread safety ensures that parallel tests do not
+   interfere with one another.
+
+Q56.Why should we avoid using a static WebDriver in Selenium?
+A-A static WebDriver means that all tests share the same browser instance. During parallel execution, multiple tests try to
+ use the same WebDriver simultaneously, which causes browser conflicts, race conditions, flaky tests, and unpredictable failures.
+
+Q57.How do you support cross-browser testing?
+A-I use browser parameterization in pytest by passing a --browser command-line option. Based on the value, a Driver Factory
+  creates the appropriate WebDriver, allowing the same test suite to run on Chrome, Firefox, or other supported browsers.
+
+    <------------------------------------- Parallel Execution ------------------------------------->
+58.Cross-Browser Testing?
+A-Browser parameterization is the process of passing the browser name (Chrome, Firefox, Edge, etc.) as a runtime parameter
+  instead of hardcoding it in the automation code.
+
+Q59.What is a Driver Factory?
+A-A Driver Factory is a design pattern that centralizes the creation of WebDriver instances. Instead of creating Chrome,
+  Firefox, or Edge drivers in multiple test files, all browser initialization is handled in a single class. This makes 
+  the framework more maintainable, scalable, and easier to support multiple browsers.
+
+Q60.What are browser-specific failures?
+A-Browser-specific failures occur when the same automation test passes on one browser but fails on another because browsers
+ have differences in rendering,JavaScript engines,security policies, download behavior, timing, or WebDriver implementation.

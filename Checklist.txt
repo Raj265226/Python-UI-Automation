@@ -162,24 +162,14 @@
  assertNotNull
                 Broken Links
  Approach                                                    -ui
-                Authentication
- Basic authentication
- Form authentication
- Cookie/session authentication
- Authentication popup concepts
- Modern browser/security limitations
                 Parallel Execution
-  Parallel tests
+ Parallel tests                                              -ui
  Parallel classes
  Parallel methods
+ When Should You Avoid Parallel Methods?
  Thread safety
- ThreadLocal WebDriver
  Why static WebDriver causes issues
- Grid + parallel execution
                 Cross-Browser Testing
- Chrome
- Firefox
  Browser parameterization
  Driver factory
- Headless browser
  Browser-specific failures
