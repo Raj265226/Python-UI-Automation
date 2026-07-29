@@ -102,26 +102,18 @@
  Screenshot on test failure                                 - ui
  Attach screenshot to report                                - ui
                 Web Tables
- Number of rows
- Number of columns
- Read all data
- Find specific value
- Find row based on employee/product name
- Click Edit/Delete based on row
+ Number of rows                                             - ui
+ Number of columns                                          - ui
+ Read all data                                              - ui
+ Find specific value                                        - ui
+ Click Edit/Delete based on row                             - ui
  Dynamic tables
- Pagination
- Sorting validation
+ Pagination                                                 - ui
+ Sorting validation                                         - ui
                 Dynamic Elements
- Dynamic IDs
- Dynamic XPath
- contains()
- starts-with()
- Relative XPath
- Dynamic buttons
+ Dynamic ID/XPath
  Dynamic dropdowns
  Elements appearing/disappearing
- Loading spinner
- AJAX-loaded elements
  Stale elements
                 Scrolling
  Scroll down
