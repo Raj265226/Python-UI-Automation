@@ -328,7 +328,6 @@ Q57.How do you support cross-browser testing?
 A-I use browser parameterization in pytest by passing a --browser command-line option. Based on the value, a Driver Factory
   creates the appropriate WebDriver, allowing the same test suite to run on Chrome, Firefox, or other supported browsers.
 
-    <------------------------------------- Parallel Execution ------------------------------------->
 58.Cross-Browser Testing?
 A-Browser parameterization is the process of passing the browser name (Chrome, Firefox, Edge, etc.) as a runtime parameter
   instead of hardcoding it in the automation code.
